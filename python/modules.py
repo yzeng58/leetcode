@@ -31,3 +31,10 @@ def linkedList(lists):
         prev = prev.next
 
     return prehead.next
+
+def test(inputs, func):
+    for args in inputs:
+        output = ""
+        for arg in args:
+            output += str(arg) + " "
+        print(output + ": " + str(func(*args)))
