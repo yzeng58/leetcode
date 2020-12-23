@@ -1,3 +1,6 @@
+from typing import List
+from time import time
+
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -33,8 +36,11 @@ def linkedList(lists):
     return prehead.next
 
 def test(inputs, func):
+    start = time()
     for args in inputs:
         output = ""
         for arg in args:
             output += str(arg) + " "
         print(output + ": " + str(func(*args)))
+        
+    print("Time elapsed: %.5f seconds" % (time()-start))
