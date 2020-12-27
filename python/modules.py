@@ -1,5 +1,6 @@
 from typing import List
 from time import time
+from collections import *
 
 # Definition for singly-linked list.
 class ListNode:
