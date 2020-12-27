@@ -85,7 +85,6 @@ class binaryTreeNode:
             
         if current.right != None:
             nums += current.right.sort()
-            
         return nums
     
 def linkedList(lists):
