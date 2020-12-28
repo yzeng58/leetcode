@@ -178,3 +178,5 @@ def test(inputs, func):
         print(output + ": " + str(func(*args)))
         
     print("Time elapsed: %.5f seconds" % (time()-start))
+
+TreeNode = binaryTreeNode
