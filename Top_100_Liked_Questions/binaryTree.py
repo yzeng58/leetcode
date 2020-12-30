@@ -120,5 +120,16 @@ class binaryTreeNode:
                 
             children += 1
                 
-        return root        
+        return root    
     
+    def BSTToList(self):
+        bst_list = [self.val]
+        
+        if self.left != None:
+            bst_list.extend(self.left.BSTToList())
+        if self.right != None:
+            bst_list.extend(self.right.BSTToList())
+            
+        return bst_list
+    
+TreeNode = binaryTreeNode
