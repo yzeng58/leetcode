@@ -39,9 +39,14 @@ class maxHeap:
         for i in range(len(self.heap)//2 - 1)[::-1]:
             self.percolateDown(i)
             
-    def pop(self):
-        root = self.heap[0]
-        self.heap[0] = self.heap[-1]
+    def pop(self, idx = 0):
+        root = self.heap[idx]
+        self.heap[idx] = self.heap[-1]
         self.heap.pop()
-        self.percolateDown(0)
+        if idx < len(self.heap):
+            self.percolateDown(idx)
+            self.percolateUp(idx)
         return root
+    
+    def peek(self):
+        return self.heap[0]
