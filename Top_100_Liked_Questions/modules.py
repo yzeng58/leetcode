@@ -5,3 +5,5 @@ from listNode import *
 from maxHeap import *
 from binaryTree import *
 from testFunc import *
+
+import heapq # heap

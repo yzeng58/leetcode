@@ -132,4 +132,48 @@ class binaryTreeNode:
             
         return bst_list
     
+class BinaryTree:
+    def __init__(self, root = None):
+        self.root = root
+    
+    def _repr_svg_(self):
+        return self.root._repr_svg_()
+    
+    def __str__(self):
+        return self.root.__str__()
+        
+    def add(self, val):
+        if self.root == None:
+            self.root = TreeNode(val)
+            return
+            
+        current = self.root
+        while True:
+            if val >= current.val:
+                if current.right != None:
+                    current = current.right
+                else:
+                    current.right = TreeNode(val)
+                    return
+            else:
+                if current.left != None:
+                    current = current.left
+                else:
+                    current.left = TreeNode(val)
+                    return 
+    
+    def inOrderTraversalHelper(self, root):
+        if root == None:
+            return []
+        
+        output = []
+        output.extend(self.inOrderTraversalHelper(root.left))
+        output.append(root.val)
+        output.extend(self.inOrderTraversalHelper(root.right))
+        
+        return output
+    
+    def inOrderTraversal(self):
+        return self.inOrderTraversalHelper(self.root)
+    
 TreeNode = binaryTreeNode
