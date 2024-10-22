@@ -22,7 +22,7 @@ class binaryTreeNode:
         return g
     
     def _repr_svg_(self):
-        return self.to_graphviz()._repr_svg_()
+        return self.to_graphviz().pipe(format='svg').decode('utf-8')
     
     def __str__(self):
         output = [self.val]
@@ -100,6 +100,7 @@ class binaryTreeNode:
             return None
         
         root = binaryTreeNode(nums[0])
+        node_dict = {nums[0]: root}
         queue = [root]
         children = 0
         
@@ -112,7 +113,10 @@ class binaryTreeNode:
                 children += 1
                 continue
                 
-            queue.append(binaryTreeNode(nums[i]))
+            new_node = binaryTreeNode(nums[i])
+            queue.append(new_node)
+            node_dict[nums[i]] = new_node
+
             if children == 0:
                 queue[0].left = queue[-1]
             else:
@@ -120,5 +124,5 @@ class binaryTreeNode:
                 
             children += 1
                 
-        return root        
+        return root, node_dict
     
